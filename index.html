@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Evaluación Final</title>
+    <link rel="stylesheet" href="css/estilo.css">
+   
+  <!-- JqueryUI--> 
+    <script	 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       
+<!-- bootstrap-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">		  
+</head>
+
+<body id="fondo">
+	
+		<h1>El entrenamiento de vegeta</h1>
+          <div id="container">  
+             <p>Bienvenido a el juego de rapidez de vegeta.
+                En este juego tiene q hacer la mayor cantidad de golpes en menos de un minuto , para este juego puedes utilizar tu mouse o teclado.
+                 Para lanzar el golpe debes precionar la flechas <- y para el retroceso la flecha ->.</p>
+
+            <form id="formdbz" method='POST' >
+                 Nombre o Apodo
+                 <input type="text" class="form-control" name="nYa" id="nYa" required="" minlength="4" ><br><br>
+              
+                 Correo Electronico: <input type="text" class="form-control" id="email" aria-describedby="emailHelp" minlength="3"  required="">
+                 <br>
+            </form>     
+    		    	<button type="button" id="start" class="btn btn-primary">Comenzar</button>
+              <button type="button" id="restart" class="btn btn-primary">Reiniciar Puntuación</button>
+    		    	
+    		    	<h1>Tiempo:<span div id="min">1</span>:<span div id="seg">00</span></h1>
+    		     
+          	 
+             <div>
+
+             <img id="vegeta"  src="img/022-0.png">
+             <img id="vegeta2"  src="img/022-1.png" style="display: none;">
+             </div>
+            <div>
+             	<button class="btn-primary" id="left"><-</button>
+             	<button class="btn-primary" id="right">-></button>
+            </div>
+          
+          <div>
+            <p>
+             Manda este formulario que se viene un gran sorteo
+             </p>
+            <button type='submit' class="btn btn-primary" name='validar' id='validar' onclick='return validarFormulario()'
+    value='validar'>Enviar
+        </button>
+          </div>
+        </div><!--container -->  
+          <div id="score">
+             <h1>Tablas de puntuacion 2020</h1>
+             <table id="tabla">
+               <tbody>
+                  <tr>
+                    <th>Nombre/Apodo</th>
+                    <th>Puntuación</th>
+                   
+                  </tr>
+                  <tr>
+                    <td>Nicolas </td>
+                    <td>361</td>
+                    
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+      	   
+    	
+
+</body>
+  <script type="text/javascript"  src="js/js.js"></script>
+</html>

@@ -1,0 +1,51 @@
+body{
+    
+    font-family: Calibri;
+    padding: 10px 20px;
+}
+
+h1 {
+	color: #FFFFFF;
+	background-color: #ffbd33;
+	padding: 10px;
+	border-radius:0 20px;
+}
+
+
+.container{
+	width: 700px;
+	margin: 0 auto;
+}
+#mi_canvas{
+	
+	border: #000 1px solid;
+}
+
+#fondo{
+	background-image: url("../img/world_kaio.jpg");
+	background-repeat: no-repeat;
+    background-size: 1400px;
+	background-attachment: fixed;
+}
+
+p {
+	color: white;
+	font-family: Calibri;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
