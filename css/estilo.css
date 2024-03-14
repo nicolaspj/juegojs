@@ -24,7 +24,7 @@ h1 {
 #fondo{
 	background-image: url("../img/world_kaio.jpg");
 	background-repeat: no-repeat;
-    background-size: 1400px;
+    background-size: cover;
 	background-attachment: fixed;
 }
 
