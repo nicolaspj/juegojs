@@ -15,7 +15,7 @@ $("#start").click(function () {
 
   cronometro = setInterval(function () {
     if (segundos == 0) {
-      segundos = 30;
+      segundos = 59;
       minutos--;
 
       m.innerHTML = minutos;
@@ -85,7 +85,7 @@ $("#start").click(function () {
 
 //*-----------------------------------------------------------------------
 $("#restart").click(function () {
-  var url = "juego.html";
+  var url = "index.html";
   $(location).attr("href", url);
 });
 
