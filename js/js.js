@@ -8,8 +8,8 @@ $("#start").click(function () {
   var golpes = 0;
   var jugadas;
   $("#vegeta2").hide();
-  segundos = 30;
-  minutos = 0;
+  segundos = 0;
+  minutos = 1;
   s = document.getElementById("seg");
   m = document.getElementById("min");
 
