@@ -1,149 +1,117 @@
-    
-        //------------JUEGO-------------------------------------
-         
-         var cronometro;
-         
-          
-         var score;
-            
-             $("#start").click(function()
-              	{   
-                    var golpes = 0;
-                    var jugadas ;
-              		$("#vegeta2").hide();
-              		segundos = 0;
-              		minutos =1;
-              		s = document.getElementById("seg");
-              		m = document.getElementById("min");
-                    
-                   
-              		cronometro = setInterval(
-                        function(){
-                        	if(segundos==0) 
-                        	{
-                        		segundos=59;
-                        		minutos--;
+//------------JUEGO-------------------------------------
 
-                        		m.innerHTML = minutos;
-                        		if(minutos==0) 
-                        		{
-                        			minutos=0;
-                        		}
-                        	}
-                        	s.innerHTML = segundos;
-                        	segundos--;
-                        	if ((minutos==0)&&(segundos==0)) 
-                        	{
-                        		jugadas ++;
-                        		deterner();
-                        		tablaPuntuacion();
-                        	}
-                        }
-              			,1000);
+var cronometro;
 
-                     //-----------------Onclick---------------------------------
-                      $(document).ready(function(){
-				            $("#left").click(function()
-				            {
-				              $("#vegeta2").show();
-				              $("#vegeta").hide();
-				              golpes ++;
-				            });
-                            
-                            $("#right").click(function()
-                            {
-                                $("#vegeta").show();
-                                $("#vegeta2").hide();
-                                golpes ++;
-                            });
-				        
-				        });
+var score;
 
-                      //--------------Teclado------------------------------------
-                      document.addEventListener('keydown', function(event) {
-					        if(event.keyCode == 37) // left arrow
-					        {
-					            $("#vegeta2").show();
-				                $("#vegeta").hide();
-				                golpes ++;
-					         }
-					          
-					    });
+$("#start").click(function () {
+  var golpes = 0;
+  var jugadas;
+  $("#vegeta2").hide();
+  segundos = 30;
+  minutos = 0;
+  s = document.getElementById("seg");
+  m = document.getElementById("min");
 
+  cronometro = setInterval(function () {
+    if (segundos == 0) {
+      segundos = 30;
+      minutos--;
 
-					    document.addEventListener('keydown', function(event) {
-					        if(event.keyCode == 39) // right arrow
+      m.innerHTML = minutos;
+      if (minutos == 0) {
+        minutos = 0;
+      }
+    }
+    s.innerHTML = segundos;
+    segundos--;
+    if (minutos == 0 && segundos == 0) {
+      jugadas++;
+      deterner();
+      tablaPuntuacion();
+    }
+  }, 1000);
 
-					        {
-					          $("#vegeta2").hide();
-				              $("#vegeta").show();
-				              golpes ++;
-					         }
-					        
-					        });
-					
+  //-----------------Onclick---------------------------------
+  $(document).ready(function () {
+    $("#left").click(function () {
+      $("#vegeta2").show();
+      $("#vegeta").hide();
+      golpes++;
+    });
 
-					              		
-					         function deterner(){
-					         	$("#vegeta").stop();
-					         	$("#vegeta2").stop();
-					         	var tiempoActual = clearInterval(cronometro);
-					         	alert("Tu marca de golpes es de :"+golpes);
-					         }
-			                
-			                function tablaPuntuacion(){
-                                
-                                    var nom = document.getElementById("nYa").value;
-	                                var mail = document.getElementById("email").value;
-                                    var tbody = $('#tabla').children('tbody');
-                                    var table = tbody.length ? tbody : $('#tabla');
-                                    table.append('<tr><td>'+nom+'</td><td>'+golpes+'<td></tr>');
+    $("#right").click(function () {
+      $("#vegeta").show();
+      $("#vegeta2").hide();
+      golpes++;
+    });
+  });
 
-                                      
-			                } 
-                        
-                 });
-            
+  //--------------Teclado------------------------------------
+  document.addEventListener("keydown", function (event) {
+    if (event.keyCode == 37) {
+      // left arrow
+      $("#vegeta2").show();
+      $("#vegeta").hide();
+      golpes++;
+    }
+  });
 
+  document.addEventListener("keydown", function (event) {
+    if (event.keyCode == 39) {
+      // right arrow
 
-         //*-----------------------------------------------------------------------
-                          $("#restart").click(function(){
-                             var url = "juego.html";
-					         $(location).attr('href',url);
-					         });
-                     
-	      //------------------------------------------------------------------------
+      $("#vegeta2").hide();
+      $("#vegeta").show();
+      golpes++;
+    }
+  });
 
-                      
+  function deterner() {
+    $("#vegeta").stop();
+    $("#vegeta2").stop();
+    var tiempoActual = clearInterval(cronometro);
+    alert("Tu marca de golpes es de :" + golpes);
+  }
 
-	                   function validarFormulario (){
-					var vValido = true;
-					if(document.getElementById('nYa').value.trim() == ''){
-						alert('Debe ingresar el nombre');
+  function tablaPuntuacion() {
+    var nom = document.getElementById("nYa").value;
+    var mail = document.getElementById("email").value;
+    var tbody = $("#tabla").children("tbody");
+    var table = tbody.length ? tbody : $("#tabla");
+    table.append("<tr><td>" + nom + "</td><td>" + golpes + "<td></tr>");
+  }
+});
 
-						vValido = false;
-					}
-	                
+//*-----------------------------------------------------------------------
+$("#restart").click(function () {
+  var url = "juego.html";
+  $(location).attr("href", url);
+});
 
+//------------------------------------------------------------------------
 
-	                 var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-	                 var nom = document.getElementById("nYa").value;
-	                 var mail = document.getElementById("email").value;
+function validarFormulario() {
+  var vValido = true;
+  if (document.getElementById("nYa").value.trim() == "") {
+    alert("Debe ingresar el nombre");
 
-	                 var esValido= expReg.test(mail);
-					  if ((vValido==true)) {
-					  if (esValido==true) {
-					  	 alert("Muy bien "+nom+""+"intentalo de nuevo y mejora tu puntuacion");
+    vValido = false;
+  }
 
-					  }else{
-					  	alert("El mail "+mail+" "+" no es valido , vuelva a intentarlo ");
-					  
-					  }     
-	               }
+  var expReg =
+    /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  var nom = document.getElementById("nYa").value;
+  var mail = document.getElementById("email").value;
 
-                  };
-
-             
-          
-
-
+  var esValido = expReg.test(mail);
+  if (vValido == true) {
+    if (esValido == true) {
+      alert(
+        "Muy bien " + nom + "" + "intentalo de nuevo y mejora tu puntuacion"
+      );
+    } else {
+      alert("El mail " + mail + " " + " no es valido , vuelva a intentarlo ");
+    }
+  }
+}
